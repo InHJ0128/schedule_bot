@@ -1,0 +1,297 @@
+body { 
+    font-family: 'Arial', sans-serif; 
+    background: #bcbcbcaf;
+}
+/* 제목(닉네임) */
+.title{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+/* 외부 틀 */
+.main_box{
+    display: flex;
+}
+/*  =================================
+
+            시간표 내부
+
+    =================================   */
+/* 메인 테이블 */
+.timetable {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: white;
+}
+/* 칸 */
+.timetable th, .timetable td {
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+    width: 200px;
+}
+/* 날짜/시간칸 */ 
+.timetable th {
+    background-color: #f0f0f0;
+    font-weight: 600;
+}
+.timetable td{
+    height: 50px;
+}
+ /* 시간표칸 */ 
+.timetable td.subject {
+    background-color: #76c8ff;
+    color: white;
+    font-weight: bold;
+    vertical-align: middle;
+}
+/*테스트*/
+.cell.D0{
+    background-color: red;
+}
+.cell.D1{
+    background-color: blue;
+}
+.cell.D2{
+    background-color: green;
+}
+.cell.D3{
+    background-color: yellow;
+}
+.cell.D4{
+    background-color: violet;
+}
+
+.timetable td.subject:hover{
+    background: rgb(132, 132, 132);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+div.subject{
+    height: 98%;
+    width: 98%;
+    border-radius: 10px;
+    background: rgb(246, 255, 148);
+    border: 3px solid #000000;
+}
+
+  
+/*  =================================
+
+            시간표 수정 메뉴
+
+    =================================   */
+/* 메인 수정 메뉴 */
+.select_box{
+    height: 85vh;
+    width: 300px;
+    padding: 10px;
+    margin-right: 10px;
+    background: #000000af;
+    border-radius: 10px;
+}
+/* 선택된 학기 */
+.date_box{
+    width: 280px;
+    height: 50px;
+    border-radius: 10px;
+    background: white;
+    border: 5px solid #000000;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.date_box:hover{
+    background: rgb(132, 132, 132);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+/* 학기 선택 메뉴 */
+.date_list_box{
+    background: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: 
+        max-height 0.4s ease,
+        opacity 0.4s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+    opacity: 0;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+.date_list_box:hover{
+    background: rgb(132, 132, 132);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.date_list_box.show {
+    max-height: 500px; /* 예상 최대 높이 */
+    opacity: 1;
+}
+.semesters.selected {
+    background: rgb(132, 132, 132);
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 4px 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* 수정 모드 변경 */
+.change_mod_box{
+    width: 280px;
+    height: 50px;
+    border-radius: 10px;
+    
+    border: 5px solid #000000;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.change_mod_box.off{
+    background: rgb(255, 130, 130);
+}
+.change_mod_box.off:hover{
+    background: rgb(149, 78, 78);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.change_mod_box.on{
+    background: rgb(181, 254, 104);
+}
+.change_mod_box.on:hover{
+    background: rgb(136, 191, 77);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* 시간표 수정 설정 */
+.change_box{
+    height: 85vh;
+    width: 300px;
+    padding: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;  /* 세로로 나열 */
+    align-items: center;
+    text-align: center;
+
+    background: #f7f7f7af;
+    max-width: 0;
+    overflow: hidden;
+    transition: 
+        max-width 0.4s ease,
+        opacity 0.4s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+    opacity: 0;
+    border-radius: 10px;
+    border: 2px solid #000000;
+}
+.change_box.show {
+    max-width: 300px; 
+    opacity: 1;
+}
+
+.create{
+    width: 280px;
+    height: 50px;
+    border-radius: 10px;
+    
+    background-color: white;
+    border: 5px solid #000000;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.create:hover{
+    background: rgb(132, 132, 132);
+    color: white;
+}
+
+.save{
+    width: 280px;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 40px;
+
+    background-color: white;
+    border: 5px solid #000000;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.save:hover{
+    background: rgb(132, 132, 132);
+    color: white;
+}
+
+.edit, .delete{
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+    
+    background-color: white;
+    border: 5px solid #000000;
+    text-align: center;
+}
+.delete{
+    background-color: rgb(251, 109, 91);
+}
+.text{
+    width: 280px;
+}
+
+.edit_list{
+    background-color: rgb(190, 190, 190);
+    border-radius: 10px;
+    border: 5px solid #000000;
+    max-height: 0px;
+    opacity: 0;
+}
+
+@keyframes fade-in {
+    from {
+        max-height: 0px;
+        opacity: 0;
+    } to {
+        max-height: 500px;
+        opacity: 1;
+    }
+}
+@keyframes fade-out {
+    from {
+        max-height: 500px;
+        opacity: 1;
+    } to {
+        max-height: 0px;
+        opacity: 0;
+    }
+}
+.edit_list.fade-in {
+    animation: fade-in 0.4s ease-in-out forwards;
+}
+.edit_list.fade-out {
+    animation: fade-out 0.4s ease-in-out forwards;
+}
+
+input[type="text"] {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
